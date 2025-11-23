@@ -1,4 +1,4 @@
-# Tube Joint Viz
+# octaveeasyfabchallenge
 
  This is a desktop application built to help visualize and manipulate joints between square and rectangular tubes in a 3D space.
 
