@@ -1,56 +1,40 @@
 {
-  "name": "challenge",
-  "version": "0.1.0",
-  "private": true,
-  "main": "electron/main.ts",
+  "name": "tube-joint-viz",
+  "version": "1.0.0",
+  "main": "electron/main.js",
   "scripts": {
-    "dev": "vite",
-    "electron": "electron .",
-    "start": "concurrently \"bun run dev\" \"bun run electron\"",
-    "build": "vite build && electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "dev": "concurrently \"vite\" \"cross-env NODE_ENV=development wait-on http://localhost:5173 && electron .\"",
+    "build": "tsc && vite build",
+    "electron:build": "npm run build && electron-builder",
+    "preview": "vite preview"
   },
   "build": {
-    "appId": "com.example.challenge",
-    "productName": "Rectangular Tube Joint Application",
+    "appId": "com.tubejoint.app",
+    "productName": "TubeJointViz",
+    "directories": {
+      "output": "release"
+    },
     "files": [
       "dist/**/*",
       "electron/**/*"
     ],
-    "directories": {
-      "buildResources": "assets",
-      "output": "release"
-    },
     "win": {
       "target": "nsis"
     },
-    "linux": {
-      "target": "AppImage"
-    },
     "mac": {
       "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
     }
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "@types/react": "^19.2.6",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
     "concurrently": "^9.2.1",
-    "electron": "^39.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^26.2.0",
     "electron-builder": "^26.0.12",
-    "vite": "^7.2.2"
-  },
-  "peerDependencies": {
-    "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.4.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "three": "^0.181.1",
-    "three-csg-ts": "^3.2.0",
-    "zustand": "^5.0.8"
+    "wait-on": "^9.0.3",
+    "typescript": "^5.3.0",
+    "vite": "^5.5.0"
   }
 }
