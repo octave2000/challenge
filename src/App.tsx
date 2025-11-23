@@ -11,12 +11,12 @@ function App() {
     isWireframe,
     selectTube,
     selectedId,
-    rotateSelectedTube, // New import
+    rotateSelectedTube,
   } = useStore();
 
   const isTubeSelected = selectedId !== null;
 
-  // Rotation in radians for Y-axis (North=0, East=90 deg, South=180 deg, West=270 deg)
+  // Rotation
   const ROTATION_MAP = {
     N: 0,
     E: Math.PI / 2,

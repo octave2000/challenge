@@ -10,7 +10,7 @@
   },
   "build": {
     "appId": "com.tubejoint.app",
-    "productName": "TubeJointViz",
+    "productName": "octaveeasyfabchallenge",
     "directories": {
       "output": "release"
     },
